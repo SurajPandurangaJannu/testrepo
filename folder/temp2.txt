@@ -1,1 +1,1 @@
-Sample Content temp2.txt 1
+Sample Content temp2.txt
