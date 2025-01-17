@@ -1,6 +1,6 @@
 {
   "version": "0.0.1",
-  "namespace": "samoka",
+  "namespace": "samok",
   "description": "sasasas",
   "authType": "xsuaa",
   "uclConfigs": [
