@@ -1,6 +1,6 @@
 {
   "version": "0.0.1",
-  "namespace": "samokiasjbu",
+  "namespace": "samokiasjbzu",
   "description": "sasasas",
   "authType": "xsuaa",
   "uclConfigs": [
