@@ -1,6 +1,6 @@
 {
   "version": "0.0.1",
-  "namespace": "sabzumnj",
+  "namespace": "sbzumnj",
   "description": "sasasas",
   "authType": "ias",
   "uclConfigs": [
