@@ -1,1 +1,18 @@
-Sample Content temp1.txt
+{
+  "version": "0.0.1",
+  "namespace": "samsjbzu",
+  "description": "sasasas",
+  "authType": "ias",
+  "uclConfigs": [
+    {
+      "type": "setUpAssistant",
+      "config": {
+      }
+    },
+    {
+      "type": "setUpConnectivity",
+      "config": {
+      }
+    }
+  ]
+}
