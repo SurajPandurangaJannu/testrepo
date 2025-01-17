@@ -1,1 +1,18 @@
-Sample Content temp2.txt 1
+{
+  "version": "0.0.1",
+  "namespace": "samok",
+  "description": "sasasas",
+  "authType": "xsuaa",
+  "uclConfigs": [
+    {
+      "type": "setUpAssistant",
+      "config": {
+      }
+    },
+    {
+      "type": "setUpConnectivity",
+      "config": {
+      }
+    }
+  ]
+}
