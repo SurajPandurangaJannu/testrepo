@@ -1,8 +1,8 @@
 {
   "version": "0.0.1",
-  "namespace": "samokiasjbzu",
-  "description": "sasasas",
-  "authType": "xsuaa",
+  "namespace": "sap.ariba.ariba_sourcing",
+  "description": "SAP ARIBA SOURCING ",
+  "authType": "ias",
   "uclConfigs": [
     {
       "type": "setUpAssistant",
