@@ -7,37 +7,11 @@
     {
       "type": "setUpAssistant",
       "config": {
-        "system_context": {
-          "uclProvided": [
-            {
-              "name": "uclSystemTenantId",
-              "value": "$.assignedTenant.uclSystemTenantId",
-              "required": true
-            }
-          ],
-          "lobProvided": [
-            {
-              "name": "tokenServiceUrl",
-              "value": "$.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.tokenServiceUrl",
-              "required": false
-            }
-          ]
-        }
       }
     },
     {
       "type": "setUpConnectivity",
       "config": {
-        "credentials": {
-          "inboundCommunication": {
-            "oauth2mtls": {
-              "clientId": "$.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.clientId",
-              "correlationIds": [
-                "$.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.correlationIds"
-              ]
-            }
-          }
-        }
       }
     }
   ]
