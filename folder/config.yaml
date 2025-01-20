@@ -1,38 +1,27 @@
----
-version: "1.0"
+version: 0.0.1
 namespace: sap.ariba.ariba_sourcing
 description: SAP ARIBA SOURCING
-authType: IAS
+authType: ias
 provisioningConfigs:
-  - type: SetUpAssistant
+  - type: setUpAssistant
     config:
-      system_metadata:
-        fields:
-          - name: <field-name-1>
-            source: <ucl/lob>
+      system_context:
+        uclProvided:
+          - name: uclSystemTenantId
+            value: $.assignedTenant.uclSystemTenantId
             required: true
-          - name: <field-name-2>
-            source: <ucl/lob>
+        lobProvided:
+          - name: tokenServiceUrl
+            value: >-
+              $.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.tokenServiceUrl
             required: false
-  - type: SetUpConnectivity
+  - type: setUpConnectivity
     config:
-      inbound_communication:
-        destinations:
-          - properties:
-              - key: name
-                value: ARIBA_SOURCING_API
-              - key: URL
-                value: $.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.url
-              - key: app_tid
-                value: <local_tenant_id>
-              - key: api_permission_group
-                value: $.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.correlationIds[0]
-              - key: tokenServiceURL
-                value: $.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.tokenServiceUrl
-            additionalProperties:
-              - key: URL.query.realmid
-                value: $.assignedTenant.configuration.additionalProperties.aribaProperties[?(@.name
-                  == 'URL.queries.realmid')].value
-              - key: URL.header.apikey
-                value: $.assignedTenant.configuration.additionalProperties.aribaProperties[?(@.name
-                  == 'URL.queries.apikey')].value
+      credentials:
+        inboundCommunication:
+          oauth2mtls:
+            clientId: >-
+              $.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.clientId
+            correlationIds:
+              - >-
+                $.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.correlationIds
