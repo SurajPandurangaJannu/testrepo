@@ -9,9 +9,11 @@ provisioningConfigs:
       system_metadata:
         fields:
           - name: name
+            value: $.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.clientId
             source: ucl
             required: true
           - name: type
+            value: $.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.clientId
             source: lob
             required: false
   - type: SetUpConnectivity
