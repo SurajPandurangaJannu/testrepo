@@ -18,18 +18,8 @@ provisioningConfigs:
     config:
       inbound_communication:
         destinations:
-          - name: ARIBA_SOURCING_API
-            properties:
-              - key: URL
-                value: $.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.url
-              - key: app_tid
-                value: <local_tenant_id>
-              - key: api_permission_group
-                value: $.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.correlationIds[0]
-              - key: tokenServiceURL
-                value: $.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.tokenServiceUrl
-            additionalProperties:
-              - key: URL.query.realmid
-                value: $.assignedTenant.configuration.additionalProperties.aribaProperties[?(@.name == 'URL.queries.realmid')].value
-              - key: URL.header.apikey
-                value: $.assignedTenant.configuration.additionalProperties.aribaProperties[?(@.name == 'URL.queries.apikey')].value
+          - properties:
+              - key: clientId
+                value: $.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.clientId
+              - key: correlationIds
+                value: $.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.correlationIds
