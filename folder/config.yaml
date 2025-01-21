@@ -1,28 +1,35 @@
-version: 1.0
-schemaVersion: 0.0.1
+version: '1.0'
 namespace: sap.ariba.ariba_sourcing
 description: SAP ARIBA SOURCING
+schemaVersion: 0.0.1
 authType: ias
 provisioningConfigs:
-  - type: setUpAssistant
+  - type: SetUpAssistant
     config:
-      system_context:
-        uclProvided:
-          - name: uclSystemTenantId
-            value: $.assignedTenant.uclSystemTenantId
+      system_metadata:
+        fields:
+          - name: name
+            source: uc
             required: true
-        lobProvided:
-          - name: tokenServiceUrl
-            value: >-
-              $.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.tokenServiceUrl
+          - name: type
+            source: lob
             required: false
-  - type: setUpConnectivity
+  - type: SetUpConnectivity
     config:
-      credentials:
-        inboundCommunication:
-          oauth2mtls:
-            clientId: >-
-              $.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.clientId
-            correlationIds:
-              - >-
-                $.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.correlationIds
+      inbound_communication:
+        destinations:
+          - name: ARIBA_SOURCING_API
+            properties:
+              - key: URL
+                value: $.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.url
+              - key: app_tid
+                value: <local_tenant_id>
+              - key: api_permission_group
+                value: $.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.correlationIds[0]
+              - key: tokenServiceURL
+                value: $.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.tokenServiceUrl
+            additionalProperties:
+              - key: URL.query.realmid
+                value: $.assignedTenant.configuration.additionalProperties.aribaProperties[?(@.name == 'URL.queries.realmid')].value
+              - key: URL.header.apikey
+                value: $.assignedTenant.configuration.additionalProperties.aribaProperties[?(@.name == 'URL.queries.apikey')].value
