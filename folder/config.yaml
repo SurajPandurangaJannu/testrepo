@@ -1,4 +1,5 @@
 version: 1.0
+schemaVersion: 0.0.1
 namespace: sap.ariba.ariba_sourcing
 description: SAP ARIBA SOURCING
 authType: ias
