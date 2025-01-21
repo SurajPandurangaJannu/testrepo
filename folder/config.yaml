@@ -9,7 +9,7 @@ provisioningConfigs:
       system_metadata:
         fields:
           - name: name
-            source: uc
+            source: ucl
             required: true
           - name: type
             source: lob
