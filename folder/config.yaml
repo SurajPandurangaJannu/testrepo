@@ -9,11 +9,9 @@ provisioningConfigs:
       system_metadata:
         fields:
           - name: name
-            value: $.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.clientId
             source: ucl
             required: true
           - name: type
-            value: $.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.clientId
             source: lob
             required: false
   - type: SetUpConnectivity
@@ -21,6 +19,8 @@ provisioningConfigs:
       inbound_communication:
         destinations:
           - properties:
+              - key: authentication
+                value: oauth2mtls
               - key: clientId
                 value: $.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.clientId
               - key: correlationIds
