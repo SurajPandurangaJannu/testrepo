@@ -1,27 +1,34 @@
-version: '1.0'
+version: 'v1.0'
 namespace: sap.ariba.ariba_sourcing
 description: SAP ARIBA SOURCING
-schemaVersion: 0.0.1
-authType: ias
-provisioningConfigs:
-  - type: SetUpAssistant
+spec_version: 'v1'
+auth_type: IAS
+provisioning_configs:
+  - type: ASSISTANT_SETUP
     config:
       system_metadata:
-        fields:
-          - name: name
-            source: ucl
-            required: true
-          - name: type
-            source: lob
-            required: false
-  - type: SetUpConnectivity
+        - name: name
+          source: ucl
+          required: true
+        - name: type
+          source: application
+          required: false
+  - type: CONNECTIVITY_SETUP
     config:
       inbound_communication:
         destinations:
-          - properties:
-              - key: authentication
+          - name: SAMPLE
+            authentication: oauth2mtls
+            url: https://sample.url
+            properties:
+              - name: authentication
                 value: oauth2mtls
-              - key: clientId
+              - name: clientId
                 value: $.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.clientId
-              - key: correlationIds
+              - name: correlationIds
                 value: $.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.correlationIds
+            additionalProperties:
+              - name: URL.query.realmid
+                value: $.assignedTenant.configuration.additionalProperties.aribaProperties[?(@.name == 'URL.queries.realmid')].value
+              - name: URL.header.apikey
+                value: $.assignedTenant.configuration.additionalProperties.aribaProperties[?(@.name == 'URL.queries.apikey')].value
