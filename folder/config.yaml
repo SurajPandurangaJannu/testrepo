@@ -1,12 +1,12 @@
 version: 'v1.0'
 namespace: sap.ariba.ariba_sourcing
 description: SAP ARIBA SOURCING
-spec_version: 'v1'
-auth_type: IAS
-provisioning_configs:
+specVersion: 'v1'
+authType: IAS
+provisioningConfigs:
   - type: ASSISTANT_SETUP
     config:
-      system_metadata:
+      systemMetadata:
         - name: name
           source: ucl
           required: true
@@ -15,7 +15,7 @@ provisioning_configs:
           required: false
   - type: CONNECTIVITY_SETUP
     config:
-      inbound_communication:
+      inboundCommunication:
         destinations:
           - name: SAMPLE
             authentication: oauth2mtls
