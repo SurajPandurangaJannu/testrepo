@@ -27,8 +27,3 @@ provisioningConfigs:
                 value: $.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.clientId
               - name: correlationIds
                 value: $.assignedTenant.configuration.credentials.outboundCommunication.oauth2mtls.correlationIds
-            additionalProperties:
-              - name: URL.query.realmid
-                value: $.assignedTenant.configuration.additionalProperties.aribaProperties[?(@.name == 'URL.queries.realmid')].value
-              - name: URL.header.apikey
-                value: $.assignedTenant.configuration.additionalProperties.aribaProperties[?(@.name == 'URL.queries.apikey')].value
