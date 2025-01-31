@@ -1,6 +1,6 @@
 version: 'v1'
 namespace: sap.ariba.ariba_sourcing
-description: SAP ARIBA SOURCING 1
+description: SAP ARIBA SOURCING 2
 specVersion: 'v1'
 authType: IAS
 provisioningConfigs:
